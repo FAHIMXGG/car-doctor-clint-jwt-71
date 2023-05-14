@@ -4,7 +4,7 @@ import BookingRow from './BookingRow';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const Bookings = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
     console.log(bookings)
     const navigate = useNavigate()
@@ -23,7 +23,8 @@ const Bookings = () => {
                     setBookings(data)
                 }
                 else{
-                    navigate('/')
+                    navigate('/login')
+                    logOut()
                 }
 
             })
